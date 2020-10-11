@@ -20,7 +20,7 @@ end
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  role                   :integer          default(0)
+#  role                   :integer          default("super_admin")
 #  student_number         :integer
 #  name                   :string
 #
