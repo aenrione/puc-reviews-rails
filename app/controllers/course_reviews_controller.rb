@@ -1,0 +1,2 @@
+class CourseReviewsController < ApplicationController
+end
