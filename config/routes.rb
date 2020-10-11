@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   devise_for :users
   mount Sidekiq::Web => '/queue'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: "home#index"
+  root to: "home#home_page"
+  resources :users
+  resources :courses
+  resources :schools
+  resources :teachers
+  resources :faculties
 end
