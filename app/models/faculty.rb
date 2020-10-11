@@ -1,4 +1,6 @@
 class Faculty < ApplicationRecord
+  validates :name, presence: true
+  has_many :schools, dependent: :nullify
 end
 
 # == Schema Information

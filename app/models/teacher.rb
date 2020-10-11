@@ -1,4 +1,7 @@
 class Teacher < ApplicationRecord
+  validates :name, presence: true
+  attribute :global_rating, :float, default: 0
+  has_many :courses, dependent: :nullify
 end
 
 # == Schema Information
