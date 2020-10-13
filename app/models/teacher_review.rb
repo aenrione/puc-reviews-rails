@@ -1,5 +1,6 @@
 class TeacherReview < ApplicationRecord
-  validates :rating, :teacher_id, :general_comment, :course_id, :recommended, presence: true
+  validates :rating, :teacher_id, :general_comment, :course_id, :recommended, :user_id,
+            presence: true
 end
 
 # == Schema Information
@@ -18,11 +19,13 @@ end
 #  teacher_id       :bigint(8)        not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  user_id          :bigint(8)
 #
 # Indexes
 #
 #  index_teacher_reviews_on_course_id   (course_id)
 #  index_teacher_reviews_on_teacher_id  (teacher_id)
+#  index_teacher_reviews_on_user_id     (user_id)
 #
 # Foreign Keys
 #

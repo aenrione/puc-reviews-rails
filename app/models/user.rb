@@ -3,9 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  include DeviseTokenAuth::Concerns::User
 
   validates :name, :email, :student_number, :role, presence: true
   enum role: { super_admin: 0, helper: 1, student: 2 }
+  attribute :role, :integer, default: 2
 end
 
 # == Schema Information
@@ -20,7 +22,7 @@ end
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  role                   :integer          default("super_admin")
+#  role                   :integer          default("student")
 #  student_number         :integer
 #  name                   :string
 #
