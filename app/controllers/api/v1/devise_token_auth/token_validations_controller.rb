@@ -12,7 +12,6 @@ class Api::V1::DeviseTokenAuth::TokenValidationsController <
 
   def render_validate_token_success
     data = @resource.token_validation_response
-    data['services'] = GetAvailableServices.for(user: @resource)
     render json: {
       success: true,
       data: resource_data(resource_json: data)

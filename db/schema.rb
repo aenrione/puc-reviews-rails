@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_11_214237) do
+ActiveRecord::Schema.define(version: 2020_10_13_022551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,10 +59,8 @@ ActiveRecord::Schema.define(version: 2020_10_11_214237) do
     t.string "campus"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "teacher_id"
     t.bigint "school_id"
     t.index ["school_id"], name: "index_courses_on_school_id"
-    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
   end
 
   create_table "faculties", force: :cascade do |t|
@@ -77,6 +75,15 @@ ActiveRecord::Schema.define(version: 2020_10_11_214237) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "faculty_id"
     t.index ["faculty_id"], name: "index_schools_on_faculty_id"
+  end
+
+  create_table "teacher_courses", force: :cascade do |t|
+    t.bigint "teacher_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_teacher_courses_on_course_id"
+    t.index ["teacher_id"], name: "index_teacher_courses_on_teacher_id"
   end
 
   create_table "teacher_reviews", force: :cascade do |t|
@@ -116,12 +123,18 @@ ActiveRecord::Schema.define(version: 2020_10_11_214237) do
     t.integer "role", default: 0
     t.integer "student_number"
     t.string "name"
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
+    t.json "tokens"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "course_reviews", "courses"
+  add_foreign_key "teacher_courses", "courses"
+  add_foreign_key "teacher_courses", "teachers"
   add_foreign_key "teacher_reviews", "courses"
   add_foreign_key "teacher_reviews", "teachers"
 end

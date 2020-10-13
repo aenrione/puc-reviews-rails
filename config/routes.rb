@@ -4,6 +4,10 @@ Rails.application.routes.draw do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
         token_validations: 'api/v1/devise_token_auth/token_validations'
       }
+      get '/courses', to: 'courses#index', as: 'courses'
+      get '/courses/:id', to: 'courses#show'
+      get '/teachers', to: 'teachers#index'
+      get '/teachers/:id', to: 'teachers#show'
     end
   end
   devise_for :users
