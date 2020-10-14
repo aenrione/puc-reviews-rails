@@ -6,7 +6,9 @@ Rails.application.routes.draw do
       }
       get '/courses', to: 'courses#index', as: 'courses'
       get '/courses/:id', to: 'courses#show'
+
       get '/teachers', to: 'teachers#index'
+      get '/teachers/courses', to: 'teachers#courses', as: 'teacher_courses'
       get '/teachers/:id', to: 'teachers#show'
     end
   end

@@ -11,7 +11,7 @@ module PucYelp
         resource '/public/*', headers: :any, methods: :get
         resource '/api/*',
           headers: :any,
-          expose: ['X-Page', 'X-PageTotal'],
+          expose: ['access-token', 'uid', 'client', 'token-type', 'expiry'],
           methods: [:get, :post, :patch, :put, :delete, :options]
       end
     end
