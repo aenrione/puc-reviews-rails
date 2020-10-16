@@ -1,5 +1,8 @@
 class TeacherReview < ApplicationRecord
-  validates :rating, :teacher_id, :general_comment, :course_id, :recommended, :user_id,
+  belongs_to :teacher
+  belongs_to :course
+  belongs_to :user
+  validates :rating, :teacher_id, :general_comment, :course_id, :user_id,
             presence: true
 end
 

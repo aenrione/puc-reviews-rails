@@ -1,5 +1,7 @@
 class CourseReview < ApplicationRecord
-  validates :rating, :general_comment, :course_id, :recommended, :user_id, presence: true
+  belongs_to :course
+  belongs_to :user
+  validates :rating, :general_comment, :course_id, :user_id, presence: true
 end
 
 # == Schema Information

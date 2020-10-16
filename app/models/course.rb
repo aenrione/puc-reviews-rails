@@ -1,23 +1,25 @@
 class Course < ApplicationRecord
   belongs_to :school
-  has_one :faculty, through: :school, dependent: :nullify
   has_many :teacher_courses, dependent: :destroy
   has_many :teachers, through: :teacher_courses
-  validates :name, :credits, :acronym, :campus, :school_id, :teacher_id, presence: true
+  has_many :course_reviews, dependent: :destroy
+  validates :name, :credits, :school_id, presence: true
+  attribute :global_rating, :float, default: 0
 end
 
 # == Schema Information
 #
 # Table name: courses
 #
-#  id         :bigint(8)        not null, primary key
-#  name       :string
-#  credits    :integer
-#  acronym    :string
-#  campus     :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  school_id  :bigint(8)
+#  id            :bigint(8)        not null, primary key
+#  name          :string
+#  credits       :integer
+#  acronym       :string
+#  campus        :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  school_id     :bigint(8)
+#  global_rating :float
 #
 # Indexes
 #

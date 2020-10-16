@@ -10,6 +10,14 @@ Rails.application.routes.draw do
       get '/teachers', to: 'teachers#index'
       get '/teachers/courses', to: 'teachers#courses', as: 'teacher_courses'
       get '/teachers/:id', to: 'teachers#show'
+      get '/search', to: 'teachers#autocomplete_search'
+
+      post '/teacher_review/new', to: 'teacher_reviews#create'
+      get '/latest_reviews', to: 'teacher_reviews#latest_reviews'
+      get '/teacher_reviews/teacher/:teacher_id', to: 'teacher_reviews#teacher_reviews'
+
+      post '/course_review/new', to: 'course_reviews#create'
+      get '/course_reviews/course/:course_id', to: 'course_reviews#course_reviews'
     end
   end
   devise_for :users
