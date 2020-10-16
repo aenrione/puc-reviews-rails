@@ -1,0 +1,26 @@
+name: Rubocano
+on: [pull_request]
+
+jobs:
+  pronto:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - run: echo "::set-output name=RUBY_VERSION::$(cat .ruby-version)"
+        id: rubyversion
+
+      - uses: eregon/use-ruby-action@master
+        with:
+          ruby-version: "${{ steps.rubyversion.outputs.RUBY_VERSION }}"
+      - uses: actions/cache@v1
+        with:
+          path: vendor
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - run: gem install bundler:2.0.2
+      - run: bundle install --path vendor/bundle --without "default production test" --with "linter"
+      - run: git fetch
+      - run: PRONTO_PULL_REQUEST_ID="$(jq --raw-output .number "$GITHUB_EVENT_PATH")" PRONTO_GITHUB_ACCESS_TOKEN="${{ secrets.PRONTO_GITHUB_TOKEN }}" bundle
