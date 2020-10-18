@@ -4,7 +4,6 @@ class CourseReview < ApplicationRecord
   validates :general_comment, :course_id, :user_id, presence: true
   validates :rating, numericality: { only_integer: true, greater_than_or_equal_to: 0,
                                      less_than_or_equal_to: 7 }, presence: true
-  validates_with UniqueCourseReviewPerUserValidator
 end
 
 # == Schema Information
