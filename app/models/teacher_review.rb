@@ -6,7 +6,6 @@ class TeacherReview < ApplicationRecord
     presence: true
   validates :rating, numericality: { only_integer: true, greater_than_or_equal_to: 0,
                                      less_than_or_equal_to: 7 }, presence: true
-  validates_with UniqueTeacherReviewPerUserValidator
 end
 
 # == Schema Information
