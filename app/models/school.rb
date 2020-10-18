@@ -1,7 +1,7 @@
 class School < ApplicationRecord
   belongs_to :faculty
   has_many :courses, dependent: :nullify
-  validates :name, presence: true
+  validates :name, :faculty_id, uniqueness: true, presence: true
 end
 
 # == Schema Information

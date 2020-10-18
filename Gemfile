@@ -12,7 +12,6 @@ gem 'draper', '~> 3.1'
 gem 'enumerize'
 gem 'jbuilder', '~> 2.7'
 gem 'omniauth-google-oauth2'
-gem 'pg'
 gem 'power-types'
 gem 'puma', '~> 4.1'
 gem 'pundit'
@@ -34,10 +33,28 @@ group :development do
   gem 'letter_opener'
   gem 'listen'
   gem 'spring'
+  gem 'sqlite3'
+end
+
+group :linter do
+  gem 'brakeman', require: false
+  gem 'fasterer', require: false
+  gem 'pronto'
+  gem 'pronto-brakeman', require: false
+  gem 'pronto-fasterer', require: false
+  gem 'pronto-rubocop', require: false
+  gem 'pronto-scss', require: false
+  gem 'pronto-eslint', require: false
+  gem 'rubocop', '~> 0.82.0'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+  gem 'scss_lint', require: false
 end
 
 group :production do
   gem 'heroku-stage'
+  gem 'pg'
   gem 'rack-timeout'
   gem 'rails_stdout_logging'
 end
@@ -58,10 +75,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-nc', require: false
   gem 'rspec-rails'
-  gem 'rubocop', '~> 0.82.0'
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
-  gem 'rubocop-rspec'
 end
 
 group :production, :development, :test do

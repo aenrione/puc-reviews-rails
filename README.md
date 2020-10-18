@@ -1,92 +1,46 @@
-# Puc Yelp [![Circle CI](https://circleci.com/gh/platanus/puc-yelp.svg?style=svg)](https://circleci.com/gh/platanus/puc-yelp)
-This is a Rails application, initially generated using [Potassium](https://github.com/platanus/potassium) by Platanus.
+# Reseñas PUC
 
-## Local installation
+## Instalación Local
 
-Assuming you've just cloned the repo, run this script to setup the project in your
-machine:
+El primer paso es clonar el repositorio con:
+    $ git clone git@github.com:puc-reviews/puc-reviews-rails.git
+En algun directorio. Si todavía no conocer GIT o sus herramientas, dirijase a [Git]
+[Git]: https://git-scm.com/
 
+Este proyecto, asume que tiene actualmente instalados [Ruby], [Node.js], [PostgreSQL], [SQLite3] and [make]/[cmake], de los cuales muchos sistemas operativos ya tienen implementados.
+[Ruby]: https://www.ruby-lang.org/es/
+[Node.js]: https://nodejs.org/es/
+[PostgreSQL]: https://www.postgresql.org/
+[SQLite3]: https://www.sqlite.org/index.html
+[make]: https://www.gnu.org/software/make/
+[cmake]: https://cmake.org/
+
+El siguiente paso, es correr el comando:
     $ ./bin/setup
+En el directorio clonado
 
-It assumes you have a machine equipped with Ruby, Node.js, Docker and make.
+Este comando/script, se asegurara de que se obtenga lo siguiente:
 
-The script will do the following among other things:
+- Instalación de dependencias
+- Preparación de la base de datos
+- Agregar los comandos necesarios de Heroku
 
-- Install the dependecies
-- Create a docker container for your database
-- Prepare your database
-- Adds heroku remotes
+Cuando el comando anterior se corra sin error alguno, entonces estará listo para correr la aplicación por primera vez. Esto puede ser hecho corriendo
 
-After the app setup is done you can run it with [Heroku Local]
-
-    $ heroku local
-
-[Heroku Local]: https://devcenter.heroku.com/articles/heroku-local
+    $ rails server
+o
+    $ rails s
 
 
-## Deployment
+## Guía de estilo
 
-This project is pre-configured to be (easily) deployed to Heroku servers, but needs you to have the Potassium binary installed. If you don't, then run:
+Este proyecto y el estilo de su codigo(de Ruby) se rigen bajo el linter de `rubocop` o `rubocop-rspec`, por lo que todo codigo subido en forma de Pull Request deberá pasar por este estandar.
 
-    $ gem install potassium
+Puede aprender más sobre esta gema en [Rubocop].
 
-Then, make sure you are logged in to the Heroku account where you want to create the app and run
+[Rubocop]: https://github.com/rubocop-hq/rubocop
 
-    $ potassium install heroku --force
-
-this will create the app on heroku, create a pipeline and link the app to the pipeline.
-
-You'll still have to manually log in to the heroku dahsboard, go to the new pipeline and 'configure automatic deploys' using Github
-You can run the following command to open the dashboard in the pipeline page
-
-    $ heroku pipelines:open
-
-![Hint](https://cloud.githubusercontent.com/assets/313750/13019759/fa86c8ca-d1af-11e5-8869-cd2efb5513fa.png)
-
-Remember to connect each stage to the corresponding branch:
-
-1. Staging -> Master
-2. Production -> Production
-
-That's it. You should already have a running app and each time you push to the corresponding branch, the system will (hopefully) update accordingly.
-
-
-## Continuous Integrations
-
-The project is setup to run tests
-in [CircleCI](https://circleci.com/gh/platanus/puc-yelp/tree/master)
-
-You can also run the test locally simulating the production environment using docker.
-Just make sure you have docker installed and run:
-
-    bin/cibuild
-
-
-## Style Guides
-
-Style guides are enforced through a CircleCI [job](.circleci/config.yml) with [reviewdog](https://github.com/reviewdog/reviewdog) as a reporter, using per-project dependencies and style configurations.
-Please note that this reviewdog implementation requires a GitHub user token to comment on pull requests. A token can be generated [here](https://github.com/settings/tokens), and it should have at least the `repo` option checked.
-The included `config.yml` assumes your CircleCI organization has a context named `org-global` with the required token under the environment variable `REVIEWDOG_GITHUB_API_TOKEN`.
-
-The project comes bundled with configuration files available in this repository.
-
-Linting dependencies like `rubocop` or `rubocop-rspec` must be locked in your `Gemfile`. Similarly, packages like `eslint` or `eslint-plugin-vue` must be locked in your `package.json`.
-
-You can add or modify rules by editing the [`.rubocop.yml`](.rubocop.yml), [`.eslintrc.json`](.eslintrc.json) or [`.stylelintrc.json`](.stylelintrc.json) files.
-
-You can (and should) use linter integrations for your text editor of choice, using the project's configuration.
-
-
-## Sending Emails
-
-The emails can be send through the gem `aws-sdk-rails` using the `aws_sdk` delivery method.
-All the `action_mailer` configuration can be found at `config/mailer.rb`, which is loaded only on production environments.
-
-All emails should be sent using background jobs, by default we install `sidekiq` for that purpuse.
-
-#### Testing in staging
-
-If you add the `EMAIL_RECIPIENTS=` environmental variable, the emails will be intercepted and redirected to the email in the variable.
+Adicionalmente, puede(y debería) integrar este linter en su editor de preferencia a través de las extensiones
 
 
 ## Internal dependencies

@@ -1,6 +1,8 @@
 class TeacherCourse < ApplicationRecord
   belongs_to :teacher
   belongs_to :course
+  validates :teacher_id, :course_id, presence: true
+  has_one_attached :avatar
 end
 
 # == Schema Information

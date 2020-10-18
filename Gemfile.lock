@@ -72,7 +72,7 @@ GEM
       rake (>= 10.4, < 14.0)
     ast (2.4.1)
     aws-eventstream (1.1.0)
-    aws-partitions (1.381.0)
+    aws-partitions (1.383.0)
     aws-sdk-core (3.109.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -102,11 +102,13 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
+    brakeman (4.10.0)
     builder (3.2.4)
     byebug (11.1.3)
     case_transform (0.2)
       activesupport
     coderay (1.1.3)
+    colorize (0.8.1)
     concurrent-ruby (1.1.7)
     connection_pool (2.2.3)
     crass (1.0.6)
@@ -121,10 +123,11 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.9.2)
       devise (>= 4.7.1)
-    devise_token_auth (1.1.3)
+    devise_token_auth (1.1.4)
       bcrypt (~> 3.0)
       devise (> 3.5.2, < 5)
       rails (>= 4.2.0, < 6.1)
+      sprockets (= 3.7.2)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
@@ -139,6 +142,11 @@ GEM
     enumerize (2.3.1)
       activesupport (>= 3.2)
     erubi (1.9.0)
+    eslintrb (2.1.0)
+      execjs
+      multi_json (>= 1.3)
+      rake
+    execjs (2.7.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.1.0)
@@ -146,10 +154,18 @@ GEM
       railties (>= 5.0.0)
     faker (2.14.0)
       i18n (>= 1.6, < 2)
-    faraday (1.0.1)
+    faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
+      ruby2_keywords
+    fasterer (0.8.3)
+      colorize (~> 0.7)
+      ruby_parser (>= 3.14.1)
     ffi (1.13.1)
+    ffi (1.13.1-x64-mingw32)
     formatador (0.2.5)
+    gitlab (4.16.1)
+      httparty (~> 0.14, >= 0.14.0)
+      terminal-table (~> 1.5, >= 1.5.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     guard (2.16.2)
@@ -169,6 +185,9 @@ GEM
     hashie (4.1.0)
     heroku-stage (0.4.0)
       rails
+    httparty (0.18.1)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
@@ -193,17 +212,23 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
+    mime-types (3.3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2020.0512)
     mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.2)
     msgpack (1.3.3)
+    msgpack (1.3.3-x64-mingw32)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nenv (0.3.0)
     nio4r (2.5.4)
     nokogiri (1.10.10)
+      mini_portile2 (~> 2.4.0)
+    nokogiri (1.10.10-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     notiffany (0.1.3)
       nenv (~> 0.1)
@@ -214,6 +239,9 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
+    octokit (4.18.0)
+      faraday (>= 0.9)
+      sawyer (~> 0.8.0, >= 0.5.3)
     omniauth (1.9.1)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
@@ -229,7 +257,30 @@ GEM
     parser (2.7.2.0)
       ast (~> 2.4.1)
     pg (1.2.3)
+    pg (1.2.3-x64-mingw32)
     power-types (0.3.1)
+    pronto (0.10.0)
+      gitlab (~> 4.0, >= 4.0.0)
+      httparty (>= 0.13.7)
+      octokit (~> 4.7, >= 4.7.0)
+      rainbow (>= 2.2, < 4.0)
+      rugged (~> 0.24, >= 0.23.0)
+      thor (~> 0.20.0)
+    pronto-brakeman (0.10.0)
+      brakeman (>= 3.2.0)
+      pronto (~> 0.10.0)
+    pronto-eslint (0.10.0)
+      eslintrb (~> 2.0, >= 2.0.0)
+      pronto (~> 0.10.0)
+    pronto-fasterer (0.10.0)
+      fasterer (~> 0.3, >= 0.3.0)
+      pronto (~> 0.10.0)
+    pronto-rubocop (0.10.0)
+      pronto (~> 0.10.0)
+      rubocop (~> 0.50, >= 0.49.1)
+    pronto-scss (0.10.0)
+      pronto (~> 0.10.0)
+      scss_lint (~> 0.43, >= 0.43.0)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -307,9 +358,6 @@ GEM
     rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-nc (0.3.0)
-      rspec (>= 3)
-      terminal-notifier (>= 1.4)
     rspec-rails (4.0.1)
       actionpack (>= 4.2)
       activesupport (>= 4.2)
@@ -339,9 +387,20 @@ GEM
     rubocop-rspec (1.41.0)
       rubocop (>= 0.68.1)
     ruby-progressbar (1.10.1)
+    ruby2_keywords (0.0.2)
+    ruby_parser (3.15.0)
+      sexp_processor (~> 4.9)
+    rugged (0.99.0)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc (2.4.0-x64-mingw32)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
@@ -349,6 +408,12 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    sawyer (0.8.2)
+      addressable (>= 2.3.5)
+      faraday (> 0.8, < 2.0)
+    scss_lint (0.59.0)
+      sass (~> 3.5, >= 3.5.5)
+    sexp_processor (4.15.1)
     shellany (0.0.1)
     shoulda-matchers (4.4.1)
       activesupport (>= 4.2.0)
@@ -361,17 +426,19 @@ GEM
       actionpack (>= 3.2.6, < 7)
       devise (>= 3.2, < 6)
     spring (2.1.1)
-    sprockets (4.0.2)
+    sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.2)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     strong_migrations (0.7.1)
       activerecord (>= 5)
-    terminal-notifier (2.0.0)
-    thor (1.0.1)
+    terminal-table (1.8.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
+    thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -379,7 +446,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2020.2)
+    tzinfo-data (1.2020.3)
       tzinfo (>= 1.0.0)
     unicode-display_width (1.7.0)
     versionist (2.0.1)
@@ -400,6 +467,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.0)
@@ -409,6 +477,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap
+  brakeman
   data_migrate
   devise
   devise-i18n
@@ -418,6 +487,7 @@ DEPENDENCIES
   enumerize
   factory_bot_rails
   faker
+  fasterer
   guard-rspec
   heroku-stage
   jbuilder (~> 2.7)
@@ -426,6 +496,12 @@ DEPENDENCIES
   omniauth-google-oauth2
   pg
   power-types
+  pronto
+  pronto-brakeman
+  pronto-eslint
+  pronto-fasterer
+  pronto-rubocop
+  pronto-scss
   pry-byebug
   pry-rails
   puma (~> 4.1)
@@ -437,7 +513,6 @@ DEPENDENCIES
   rails_stdout_logging
   recipient_interceptor
   responders
-  rspec-nc
   rspec-rails
   rspec_junit_formatter (= 0.2.2)
   rubocop (~> 0.82.0)
@@ -445,10 +520,12 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   sass-rails (>= 6)
+  scss_lint
   shoulda-matchers
   sidekiq
   simple_token_authentication (~> 1.0)
   spring
+  sqlite3
   strong_migrations
   turbolinks (~> 5)
   tzinfo-data
