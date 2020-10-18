@@ -3,20 +3,17 @@
 ## Instalación Local
 
 El primer paso es clonar el repositorio con:
+```bash
     $ git clone git@github.com:puc-reviews/puc-reviews-rails.git
-En algun directorio. Si todavía no conocer GIT o sus herramientas, dirijase a [Git]
-[Git]: https://git-scm.com/
+```   
+En algun directorio. Si todavía no conocer GIT o sus herramientas, dirijase a [Git]( https://git-scm.com/).
 
-Este proyecto, asume que tiene actualmente instalados [Ruby], [Node.js], [PostgreSQL], [SQLite3] and [make]/[cmake], de los cuales muchos sistemas operativos ya tienen implementados.
-[Ruby]: https://www.ruby-lang.org/es/
-[Node.js]: https://nodejs.org/es/
-[PostgreSQL]: https://www.postgresql.org/
-[SQLite3]: https://www.sqlite.org/index.html
-[make]: https://www.gnu.org/software/make/
-[cmake]: https://cmake.org/
+Este proyecto, asume que tiene actualmente instalados [Ruby](https://www.ruby-lang.org/es/), [Node.js](https://nodejs.org/es/), [PostgreSQL](https://www.postgresql.org/), [SQLite3](https://www.sqlite.org/index.html) and [make](https://www.gnu.org/software/make/)/[cmake](https://cmake.org/), de los cuales muchos sistemas operativos ya tienen implementados.
 
 El siguiente paso, es correr el comando:
+```bash
     $ ./bin/setup
+```  
 En el directorio clonado
 
 Este comando/script, se asegurara de que se obtenga lo siguiente:
@@ -26,19 +23,21 @@ Este comando/script, se asegurara de que se obtenga lo siguiente:
 - Agregar los comandos necesarios de Heroku
 
 Cuando el comando anterior se corra sin error alguno, entonces estará listo para correr la aplicación por primera vez. Esto puede ser hecho corriendo
-
+```bash
     $ rails server
+```  
 o
+```bash
     $ rails s
+```  
 
 
 ## Guía de estilo
 
 Este proyecto y el estilo de su codigo(de Ruby) se rigen bajo el linter de `rubocop` o `rubocop-rspec`, por lo que todo codigo subido en forma de Pull Request deberá pasar por este estandar.
 
-Puede aprender más sobre esta gema en [Rubocop].
+Puede aprender más sobre esta gema en [Rubocop](https://github.com/rubocop-hq/rubocop).
 
-[Rubocop]: https://github.com/rubocop-hq/rubocop
 
 Adicionalmente, puede(y debería) integrar este linter en su editor de preferencia a través de las extensiones
 
