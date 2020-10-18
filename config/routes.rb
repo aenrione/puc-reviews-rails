@@ -4,19 +4,18 @@ Rails.application.routes.draw do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
         token_validations: 'api/v1/devise_token_auth/token_validations'
       }
-      get '/courses', to: 'courses#index', as: 'courses'
-      get '/courses/:id', to: 'courses#show'
+      resources :teachers
+      resources :courses
+      resources :schools
+      resources :faculties
+      resources :teacher_courses
+      resources :teacher_reviews
+      resources :course_reviews
 
-      get '/teachers', to: 'teachers#index'
-      get '/teachers/courses', to: 'teachers#courses', as: 'teacher_courses'
-      get '/teachers/:id', to: 'teachers#show'
+      get '/teachers/courses/:id', to: 'teachers#courses'
       get '/search', to: 'teachers#autocomplete_search'
-
-      post '/teacher_review/new', to: 'teacher_reviews#create'
       get '/latest_reviews', to: 'teacher_reviews#latest_reviews'
       get '/teacher_reviews/teacher/:teacher_id', to: 'teacher_reviews#teacher_reviews'
-
-      post '/course_review/new', to: 'course_reviews#create'
       get '/course_reviews/course/:course_id', to: 'course_reviews#course_reviews'
     end
   end
