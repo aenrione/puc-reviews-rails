@@ -368,6 +368,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     strong_migrations (0.7.1)
       activerecord (>= 5)
     terminal-notifier (2.0.0)
@@ -449,6 +450,7 @@ DEPENDENCIES
   sidekiq
   simple_token_authentication (~> 1.0)
   spring
+  sqlite3
   strong_migrations
   turbolinks (~> 5)
   tzinfo-data

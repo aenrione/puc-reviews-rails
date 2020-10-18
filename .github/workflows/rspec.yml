@@ -55,13 +55,13 @@ jobs:
         if [ ! -e vendor/bundle/.sassc.updated.146 ]; then rm -f vendor/bundle/specifications/sassc-*; touch vendor/bundle/.sassc.updated.146; fi # trigger a rebuild once
         bundle install --path vendor/bundle --jobs 4 --retry 3
         bin/rails db:setup RAILS_ENV=test
-    # - name: Run Tests
-    #   env:
-    #     PGHOST: localhost
-    #     PGUSER: postgres
-    #     RAILS_ENV: test
-    #   run: |
-    #     bundle exec rspec
+    - name: Run Tests
+      env:
+        PGHOST: localhost
+        PGUSER: postgres
+        RAILS_ENV: test
+      run: |
+        bundle exec rspec
 
     - name: Migrate DB
       env:

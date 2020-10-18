@@ -12,7 +12,6 @@ gem 'draper', '~> 3.1'
 gem 'enumerize'
 gem 'jbuilder', '~> 2.7'
 gem 'omniauth-google-oauth2'
-gem 'pg'
 gem 'power-types'
 gem 'puma', '~> 4.1'
 gem 'pundit'
@@ -34,10 +33,12 @@ group :development do
   gem 'letter_opener'
   gem 'listen'
   gem 'spring'
+  gem 'sqlite3'
 end
 
 group :production do
   gem 'heroku-stage'
+  gem 'pg'
   gem 'rack-timeout'
   gem 'rails_stdout_logging'
 end
