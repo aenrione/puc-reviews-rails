@@ -36,6 +36,22 @@ group :development do
   gem 'sqlite3'
 end
 
+group :linter do
+  gem 'brakeman', require: false
+  gem 'fasterer', require: false
+  gem 'pronto'
+  gem 'pronto-brakeman', require: false
+  gem 'pronto-fasterer', require: false
+  gem 'pronto-rubocop', require: false
+  gem 'pronto-scss', require: false
+  gem 'pronto-eslint', require: false
+  gem 'rubocop', '~> 0.82.0'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+  gem 'scss_lint', require: false
+end
+
 group :production do
   gem 'heroku-stage'
   gem 'pg'
@@ -59,10 +75,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-nc', require: false
   gem 'rspec-rails'
-  gem 'rubocop', '~> 0.82.0'
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
-  gem 'rubocop-rspec'
 end
 
 group :production, :development, :test do

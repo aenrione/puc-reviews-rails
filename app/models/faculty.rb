@@ -1,5 +1,5 @@
 class Faculty < ApplicationRecord
-  validates :name, presence: true
+  validates :name, uniqueness: true, presence: true
   has_many :schools, dependent: :nullify
 end
 
