@@ -1,7 +1,7 @@
 class TeacherCourse < ApplicationRecord
   belongs_to :teacher
   belongs_to :course
-  validates :teacher_id, :course_id, presence: true
+  validates :teacher_id, :course_id, uniqueness: true, presence: true
   has_one_attached :avatar
 end
 

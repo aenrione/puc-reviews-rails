@@ -7,6 +7,21 @@ class Api::V1::TeachersController < Api::V1::BaseController
     render json: Teacher.find(params[:id])
   end
 
+  def create
+    if current_v1_user.student?
+      raise 'Estudiantes no tienen este privilegio'
+    end
+    teacher = Teacher.new(
+      name: params[:name],
+      email: params[:email]
+    )
+    if teacher.save
+      render json: {}, status: :ok
+    else
+      raise 'No se pudo crear, revise parametros'
+    end
+  end
+
   def courses
     teacher = Teacher.find(params[:id])
     render json: teacher.courses
