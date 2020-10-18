@@ -10,10 +10,13 @@ En algun directorio. Si todavía no conocer GIT o sus herramientas, dirijase a [
 
 Este proyecto, asume que tiene actualmente instalados [Ruby](https://www.ruby-lang.org/es/), [Node.js](https://nodejs.org/es/), [PostgreSQL](https://www.postgresql.org/), y [make](https://www.gnu.org/software/make/)/[cmake](https://cmake.org/), de los cuales muchos sistemas operativos ya tienen implementados.
 
+
+
 El siguiente paso, es correr el comando:
 ```bash
     $ ./bin/setup
 ```
+
 En el directorio clonado
 
 Este comando/script, se asegurara de que se obtenga lo siguiente:
