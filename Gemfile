@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'active_model_serializers', '~> 0.10.0'
-gem 'aws-sdk-rails'
-gem 'aws-sdk-s3', '~> 1.0'
+#gem 'aws-sdk-s3', require: false
 gem 'bootsnap', require: false
 gem 'data_migrate'
 gem 'devise'
