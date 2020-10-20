@@ -17,6 +17,13 @@ Rails.application.routes.draw do
       get '/latest_reviews', to: 'teacher_reviews#latest_reviews'
       get '/teacher_reviews/teacher/:teacher_id', to: 'teacher_reviews#teacher_reviews'
       get '/course_reviews/course/:course_id', to: 'course_reviews#course_reviews'
+
+      get '/search_teachers', to: 'teachers#search_teacher'
+      get '/best_teachers', to: 'teachers#get_best_teachers'
+      get '/teacher/reviews', to: 'teachers#get_reviews'
+
+      get '/search_courses', to: 'courses#search_course'
+      get '/course/reviews', to: 'courses#get_reviews'
     end
   end
   devise_for :users

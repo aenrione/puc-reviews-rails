@@ -3,7 +3,10 @@ class Teacher < ApplicationRecord
   attribute :global_rating, :float, default: 0
   has_many :teacher_courses, dependent: :destroy
   has_many :courses, through: :teacher_courses
+  has_many :schools, through: :courses
+  has_many :faculties, through: :schools
   has_many :teacher_reviews, dependent: :destroy
+  has_one_attached :avatar
 end
 
 # == Schema Information
