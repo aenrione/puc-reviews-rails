@@ -2,7 +2,7 @@ class CourseReview < ApplicationRecord
   belongs_to :course
   belongs_to :user
   validates :general_comment, :course_id, :user_id, presence: true
-  validates :rating, numericality: { only_integer: true, greater_than_or_equal_to: 0,
+  validates :rating, numericality: { greater_than_or_equal_to: 0,
                                      less_than_or_equal_to: 7 }, presence: true
 end
 
