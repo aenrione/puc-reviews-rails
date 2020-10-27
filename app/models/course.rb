@@ -5,6 +5,10 @@ class Course < ApplicationRecord
   has_many :course_reviews, dependent: :destroy
   validates :name, :credits, :school_id, presence: true
   attribute :global_rating, :float, default: 0
+
+  def autocomplete_name
+    "#{acronym} - #{name}"
+  end
 end
 
 # == Schema Information

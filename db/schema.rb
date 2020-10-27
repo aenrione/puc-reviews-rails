@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_14_185808) do
+ActiveRecord::Schema.define(version: 2020_10_27_030711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,12 +70,19 @@ ActiveRecord::Schema.define(version: 2020_10_14_185808) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "school_faculties", force: :cascade do |t|
+    t.bigint "school_id", null: false
+    t.bigint "faculty_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["faculty_id"], name: "index_school_faculties_on_faculty_id"
+    t.index ["school_id"], name: "index_school_faculties_on_school_id"
+  end
+
   create_table "schools", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "faculty_id"
-    t.index ["faculty_id"], name: "index_schools_on_faculty_id"
   end
 
   create_table "teacher_courses", force: :cascade do |t|
@@ -134,6 +141,8 @@ ActiveRecord::Schema.define(version: 2020_10_14_185808) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "course_reviews", "courses"
+  add_foreign_key "school_faculties", "faculties"
+  add_foreign_key "school_faculties", "schools"
   add_foreign_key "teacher_courses", "courses"
   add_foreign_key "teacher_courses", "teachers"
   add_foreign_key "teacher_reviews", "courses"

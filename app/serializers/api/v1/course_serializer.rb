@@ -16,4 +16,8 @@ class Api::V1::CourseSerializer < ActiveModel::Serializer
                    .where('rating < ?', 7).count
     }
   end
+
+  attribute :autocomplete_name do
+    object.autocomplete_name
+  end
 end

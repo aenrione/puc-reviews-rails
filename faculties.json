@@ -1,0 +1,156 @@
+[
+  {
+    "Facultad de Agronomía e Ingeniería Forestal": [
+      { "name": "Escuela de Medicina Veterinaria"},
+      { "name": "Escuela de Agronomía e Ingeniería Forestal"}
+    ]
+  },
+  {
+    "Facultad de Arquitectura, Diseño y Estudios Urbanos": [
+      { "name": "Escuela de Arquitectura"},
+      { "name": "Instituto de Estudios Urbanos"},
+      { "name": "Escuela de Diseño"}
+    ]
+  },
+  {
+    "Facultad de Artes": [
+      { "name": "Escuela de Arte"},
+      { "name": "Escuela de Teatro"},
+      { "name": "Instituto de Música"}
+    ]
+  },
+  {
+    "Facultad de Ciencias Biológicas": [
+      { "name": "Escuela de Ciencias Biológicas"},
+      { "name": "Escuela de Ciencias de la Salud"},
+      { "name": "Escuela de Medicina Veterinaria"},
+      { "name": "Instituto de Ingeniería Biológica y Médica"}
+    ]
+  },
+  {
+    "Facultad de Ciencias Sociales": [
+      { "name": "Escuela de Agronomía e Ingeniería Forestal"},
+      { "name": "Escuela de Gobierno"},
+      { "name": "Escuela de Psicología"},
+      { "name": "Escuela de Trabajo Social"},
+      { "name": "Instituto de Sociología"}
+    ]
+  },
+  {
+    "Facultad de Comunicaciones": [
+      { "name": "Escuela de Comunicaciones"}
+    ]
+  },
+  {
+    "Facultad de Derecho": [
+      { "name": "Escuela de Derecho"},
+      { "name": "Escuela de Gobierno"}
+    ]
+  },
+  {
+    "Facultad de Economía y Administración": [
+      { "name": "Escuela de Administración"},
+      { "name": "Escuela de Gobierno"},
+      { "name": "Instituto de Economía"}
+    ]
+  },
+  {
+    "Facultad de Educación": [
+      { "name": "Escuela de Educación"}
+    ]
+  },
+  {
+    "Facultad de Filosofía": [
+      { "name": "Instituto de Estética"},
+      { "name": "Instituto de Filosofía"}
+    ]
+  },
+  {
+    "Facultad de Física": [
+      { "name": "Instituto de Astrofísica"},
+      { "name": "Instituto de Física"}
+    ]
+  },
+  {
+    "Facultad de Historia, Geografía y Ciencia Política": [
+      { "name": "Escuela de Gobierno"},
+      { "name": "Instituto de Ciencia Política"},
+      { "name": "Instituto de Historia"},
+      { "name": "Instituto de Geografía"}
+    ]
+  },
+  {
+    "Facultad de Ingeniería": [
+      { "name": "Escuela de Construcción Civil"},
+      { "name": "Escuela de Gobierno"},
+      { "name": "Escuela de Ingeniería"},
+      { "name": "Instituto de Ingeniería Biológica y Médica"},
+      { "name": "Instituto de Ingeniería Matemática y Computacional"}
+    ]
+  },
+  {
+    "Facultad de Letras": [
+      { "name": "Escuela de Letras"}
+    ]
+  },
+  {
+    "Facultad de Matemáticas": [
+      { "name": "Instituto de Ingeniería Matemática y Computacional"},
+      { "name": "Escuela de Matemáticas"}
+    ]
+  },
+  {
+    "Facultad de Medicina": [
+      { "name": "Escuela de Enfermería"},
+      { "name": "Escuela de Medicina"},
+      { "name": "Escuela de Medicina Veterinaria"},
+      { "name": "Escuela de Odontología"},
+      { "name": "Instituto de Ingeniería Biológica y Médica"}
+    ]
+  },
+  {
+    "Facultad de Química y de Farmacia": [
+      { "name": "Escuela de Química"}
+    ]
+  },
+  {
+    "Facultad de Teología": [
+      { "name": "Escuela de Teología"}
+    ]
+  },
+  {
+    "Campus Villarrica": [
+      { "name": "Campus Villarrica"}
+    ]
+  },
+  {
+    "College": [
+      { "name": "College"}
+    ]
+  },
+  {
+    "Actividades Universitarias": [
+      { "name": "Actividades Universitarias"}
+    ]
+  },
+  {
+    "Centro de Apoyo al Rendimiento Académico": [
+      { "name": "CARA"}
+    ]
+  },
+  {
+    "Deportes": [
+      { "name": "Deportes"}
+    ]
+  },
+  {
+    "Colegio Programas Doctorales": [
+      { "name": "Colegio Programas Doctorales"}
+    ]
+  },
+  {
+    "Requisito Idioma": [
+      { "name": "Requisito Idioma"}
+    ]
+  }
+]

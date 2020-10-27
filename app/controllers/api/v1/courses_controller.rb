@@ -1,6 +1,6 @@
 class Api::V1::CoursesController < Api::V1::BaseController
   def index
-    render json: Course.all
+    render json: Course.all.limit(100)
   end
 
   def show
@@ -11,20 +11,31 @@ class Api::V1::CoursesController < Api::V1::BaseController
     courses = Course.all
 
     if params[:school_id].present?
-      courses = courses.where(school_id: params[:school_id])
+      courses = School.find(params[:school_id]).courses
     elsif params[:faculty_id].present?
-      courses = courses.where(school: School.where(faculty_id: params[:faculty_id]))
+      courses = Faculty.find(params[:faculty_id]).courses
     end
+
     if params[:rating_min].present? && params[:rating_max]
-      courses = Course.where("global_rating >= ?",  params[:rating_min].to_i)
-                      .where("global_rating < ?",  params[:rating_max].to_i + 1)
+      courses = courses.where("global_rating >= ?",  params[:rating_min].to_i)
+                       .where("global_rating < ?",  params[:rating_max].to_i + 1)
+    end
+
+    if params[:acronym].present?
+      courses = courses.where("lower(acronym) LIKE ?", "%#{params[:acronym].downcase}%")
+    end
+
+    if params[:course_name].present?
+      courses = courses.where("lower(name) LIKE ?", "%#{params[:course_name].downcase}%")
     end
     json_results = []
 
-    courses.limit(20).each do |course|
+    courses.limit(75).each do |course|
       temp = { "id": course.id,
                "name": course.name,
-               "global_rating": course.global_rating }
+               "acronym": course.acronym,
+               "global_rating": course.global_rating,
+               "autocomplete_name": course.autocomplete_name }
       json_results.append(temp)
     end
 
