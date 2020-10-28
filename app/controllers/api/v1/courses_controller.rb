@@ -1,6 +1,6 @@
 class Api::V1::CoursesController < Api::V1::BaseController
   def index
-    render json: Course.all.limit(50)
+    render json: Course.all.limit(35)
   end
 
   def show
@@ -26,7 +26,10 @@ class Api::V1::CoursesController < Api::V1::BaseController
     end
 
     if params[:course_name].present?
-      courses = courses.where("lower(name) LIKE ?", "%#{params[:course_name].downcase}%")
+      courses = courses.where(
+        'lower(acronym) LIKE ? OR lower(name) LIKE ?', "%#{params[:course_name].downcase}%",
+        "%#{params[:course_name].downcase}%"
+      ).limit(25)
     end
     json_results = []
 
