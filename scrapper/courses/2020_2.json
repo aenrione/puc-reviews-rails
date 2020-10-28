@@ -396,7 +396,7 @@
         ]
     },
     {
-        "Escuela de Agronomía e Ingeniería Forestal": [
+        "Escuela de Agronom\u00eda e Ingenier\u00eda Forestal": [
             {
                 "Sigla": " AGC203",
                 "Nombre": "Produccion de Flores y Ornamentales",
@@ -1884,7 +1884,7 @@
         ]
     },
     {
-        "Escuela de Agronomía e Ingeniería Forestal": [
+        "Escuela de Antropolog\u00eda": [
             {
                 "Sigla": " ANT100",
                 "Nombre": "Paradigmas Antropol\u00f3gicos",
@@ -4451,7 +4451,7 @@
         ]
     },
     {
-        "Instituto de Astrofísica": [
+        "Instituto de Astrof\u00edsica": [
             {
                 "Sigla": " ASP5106",
                 "Nombre": "Poblaciones Estelares",
@@ -4840,7 +4840,7 @@
             {
                 "Sigla": " ASP9302",
                 "Nombre": "Fronteras de la Astrof\u00edsica B",
-                "Prof": "Padilla Nelson, Guzman Viviana, Puzia Thomas, Treister Ezequiel, Dunner Rolando, Barrientos Luis, Bauer Franz, Chaname Julio, Clocchiatti Alejandro, Galaz Gaspar, Zoccali Manuela",
+                "Prof": "Padilla Nelson, Bauer Franz, Chaname Julio, Clocchiatti Alejandro, Dunner Rolando, Zoccali Manuela, Guzman Viviana, Puzia Thomas, Treister Ezequiel, Barrientos Luis, Galaz Gaspar",
                 "Campus": "San Joaqu\u00edn",
                 "Creditos": "10"
             },
@@ -5393,7 +5393,7 @@
         ]
     },
     {
-        "Instituto de Ciencia Política": [
+        "Instituto de Ciencia Pol\u00edtica": [
             {
                 "Sigla": " ICP0101",
                 "Nombre": "Introduccion a la Ciencia Politica",
@@ -6111,7 +6111,7 @@
         ]
     },
     {
-        "Escuela de Ciencias Biológicas": [
+        "Escuela de Ciencias Biol\u00f3gicas": [
             {
                 "Sigla": " BIO090B",
                 "Nombre": "Biolog\u00eda Preliminar",
@@ -9109,7 +9109,7 @@
         ]
     },
     {
-        "Escuela de Construcción Civil": [
+        "Escuela de Construcci\u00f3n Civil": [
             {
                 "Sigla": " CCL2301",
                 "Nombre": "Taller de Gesti\u00f3n",
@@ -12719,7 +12719,7 @@
         ]
     },
     {
-        "Escuela de Diseño": [
+        "Escuela de Dise\u00f1o": [
             {
                 "Sigla": " DNO001",
                 "Nombre": "Iluminacion",
@@ -13682,7 +13682,7 @@
         ]
     },
     {
-        "Instituto de Economía": [
+        "Instituto de Econom\u00eda": [
             {
                 "Sigla": " EAA100A",
                 "Nombre": "Horizontes y Desaf\u00edos en la Gesti\u00f3n de Empresas",
@@ -16066,7 +16066,7 @@
         ]
     },
     {
-        "Escuela de Educación": [
+        "Escuela de Educaci\u00f3n": [
             {
                 "Sigla": " ECM111M",
                 "Nombre": "Estad\u00edstica y Probabilidad",
@@ -17687,7 +17687,7 @@
             {
                 "Sigla": " EDU0443",
                 "Nombre": "Pr\u00e1ctica Iii: Educaci\u00f3n Parvularia",
-                "Prof": "Castro Carolina, Yuraszeck Jennifer, Suarez Marcela, Toro Angelica, Kerestegian Luz, Mancilla Eliana",
+                "Prof": "Castro Carolina, Toro Angelica, Mancilla Eliana, Suarez Marcela, Yuraszeck Jennifer, Kerestegian Luz",
                 "Campus": "San Joaqu\u00edn",
                 "Creditos": "10"
             },
@@ -18646,7 +18646,7 @@
         ]
     },
     {
-        "Escuela de Enfermería": [
+        "Escuela de Enfermer\u00eda": [
             {
                 "Sigla": " ENA3421",
                 "Nombre": "Enfermeria en Cuidados Criticos del Adulto II",
@@ -19449,7 +19449,7 @@
         ]
     },
     {
-        "Instituto de Estética": [
+        "Instituto de Est\u00e9tica": [
             {
                 "Sigla": " ESE4036",
                 "Nombre": "Poesia Chilena de Fin de Siglo",
@@ -19719,7 +19719,7 @@
         ]
     },
     {
-        "Instituto de Filosofía": [
+        "Instituto de Filosof\u00eda": [
             {
                 "Sigla": " FIL001",
                 "Nombre": "Plat\u00f3n",
@@ -20500,7 +20500,7 @@
         ]
     },
     {
-        "Instituto de Física": [
+        "Instituto de F\u00edsica": [
             {
                 "Sigla": " FIM3400",
                 "Nombre": "Cromodin\u00e1mica Cu\u00e1ntica",
@@ -23248,7 +23248,7 @@
         ]
     },
     {
-        "Instituto de Geografía": [
+        "Instituto de Geograf\u00eda": [
             {
                 "Sigla": " GEO103",
                 "Nombre": "Geograf\u00eda Humana General",
@@ -24719,10 +24719,10 @@
         ]
     },
     {
-        "Ing Matem\u00e1tica y Computacional": []
+        "Instituto de Ingenier\u00eda Matem\u00e1tica y Computacional": []
     },
     {
-        "Instituto de Ingeniería Matemática y Computacional": [
+        "Escuela de Ingenier\u00eda": [
             {
                 "Sigla": " IAC3220",
                 "Nombre": "Sistemas Integrados de Gestion",
@@ -24818,13 +24818,6 @@
                 "Sigla": " IBM2101",
                 "Nombre": "Im\u00e1genes Biom\u00e9dicas",
                 "Prof": "Coronado Ronal",
-                "Campus": "San Joaqu\u00edn",
-                "Creditos": "10"
-            },
-            {
-                "Sigla": " IBM2122",
-                "Nombre": "Dise\u00f1o en Ingenier\u00eda Biom\u00e9dica I (Capstone)",
-                "Prof": "Parot Vicente",
                 "Campus": "San Joaqu\u00edn",
                 "Creditos": "10"
             },
@@ -29010,7 +29003,7 @@
         ]
     },
     {
-        "Instituto de Ingeniería Biológica y Médica": [
+        "Instituto de Ingenier\u00eda Biol\u00f3gica y M\u00e9dica": [
             {
                 "Sigla": " IBM3106",
                 "Nombre": "Ethics for Research in Biological and Medical Engineering",
@@ -30645,7 +30638,7 @@
         "College": []
     },
     {
-        "Escuela de Matemáticas": [
+        "Escuela de Matem\u00e1ticas": [
             {
                 "Sigla": " EPG3210",
                 "Nombre": "Inferencia Cl\u00e1sica",
@@ -33250,7 +33243,7 @@
             {
                 "Sigla": " MFN1010",
                 "Nombre": "Medicina Familiar Nino Ib",
-                "Prof": "Rivera Solange",
+                "Prof": "Rivera Solange, Cuadra Victoria",
                 "Campus": "Casa Central",
                 "Creditos": "25"
             },
@@ -34752,7 +34745,7 @@
         ]
     },
     {
-        "Instituto de Música": [
+        "Instituto de M\u00fasica": [
             {
                 "Sigla": " MUC1000",
                 "Nombre": "Apreciaci\u00f3n de M\u00fasica en Vivo",
@@ -36667,7 +36660,7 @@
         ]
     },
     {
-        "Escuela de Odontología": [
+        "Escuela de Odontolog\u00eda": [
             {
                 "Sigla": " ODO102A",
                 "Nombre": "Fundamentos Odontol\u00f3gicos Integrados II",
@@ -37014,7 +37007,7 @@
         ]
     },
     {
-        "Escuela de Psicología": [
+        "Escuela de Psicolog\u00eda": [
             {
                 "Sigla": " PSB400B",
                 "Nombre": "Teorias y Procesos Psicologicos",
@@ -38355,7 +38348,7 @@
         ]
     },
     {
-        "Escuela de Química": [
+        "Escuela de Qu\u00edmica": [
             {
                 "Sigla": " QIF101A",
                 "Nombre": "F\u00e1rmaco-Qu\u00edmica I",
@@ -40946,7 +40939,7 @@
         ]
     },
     {
-        "Instituto de Sociología": [
+        "Instituto de Sociolog\u00eda": [
             {
                 "Sigla": " SOG104",
                 "Nombre": "Teor\u00eda de la Comunicaci\u00f3n",
@@ -41804,7 +41797,7 @@
         ]
     },
     {
-        "Escuela de Teología": [
+        "Escuela de Teolog\u00eda": [
             {
                 "Sigla": " TBD016",
                 "Nombre": "Trinidad Cristologia II",

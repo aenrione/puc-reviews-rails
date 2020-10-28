@@ -1,6 +1,6 @@
 class Api::V1::TeacherCoursesController < Api::V1::BaseController
   def index
-    render json: TeacherCourse.all.limit(100)
+    render json: TeacherCourse.all.limit(50)
   end
 
   def show
@@ -11,6 +11,7 @@ class Api::V1::TeacherCoursesController < Api::V1::BaseController
     if current_v1_user.student?
       raise 'Estudiantes no tienen este privilegio'
     end
+
     teacher_course = TeacherCourse.new(
       teacher_id: params[:teacher_id],
       course_id: params[:course_id]

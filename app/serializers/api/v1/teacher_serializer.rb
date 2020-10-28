@@ -1,6 +1,23 @@
 class Api::V1::TeacherSerializer < ActiveModel::Serializer
   attributes :id, :name, :email, :global_rating
-  has_many :courses
+  YEAR = GetCurrentYearAndSemester.for[0]
+  SEMESTER = GetCurrentYearAndSemester.for[1]
+
+  attribute :courses do
+    result = []
+    object.courses.where(teacher_courses: { semester: SEMESTER, year: YEAR }).each do |c|
+      info = {
+        id: c.id,
+        name: c.name,
+        acronym: c.acronym,
+        credits: c.credits,
+        campus: c.campus,
+        global_rating: c.global_rating,
+      }
+      result << info
+    end
+    result
+  end
 
   attribute :rating_counts do
     {

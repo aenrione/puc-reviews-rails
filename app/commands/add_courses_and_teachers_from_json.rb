@@ -1,10 +1,10 @@
-class AddCoursesAndTeachersFromJson < PowerTypes::Command.new
+class AddCoursesAndTeachersFromJson < PowerTypes::Command.new(:year, :semester)
   UNDEFINED_TEACHER = 'Por Fijar'
   NO_TEACHER = '(Sin Profesores)'
 
   def perform
     require 'json'
-    courses_json = File.read('courses.json')
+    courses_json = File.read("scrapper/courses/#{@year}_#{@semester}.json")
     courses = JSON.parse(courses_json)
 
     add_courses(courses)
@@ -42,8 +42,8 @@ class AddCoursesAndTeachersFromJson < PowerTypes::Command.new
     return false if course_id.nil?
 
     teacher = Teacher.find_by(name: name).presence || Teacher.create!(name: name)
-    if TeacherCourse.find_by(teacher_id: teacher.id, course_id: course_id).blank?
-      TeacherCourse.create!(teacher_id: teacher.id, course_id: course_id)
+    if TeacherCourse.find_by(teacher_id: teacher.id, course_id: course_id, year: @year, semester: @semester).blank?
+      TeacherCourse.create!(teacher_id: teacher.id, course_id: course_id, year: @year, semester: @semester)
     end
   end
 

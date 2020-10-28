@@ -1,6 +1,6 @@
 class Api::V1::TeachersController < Api::V1::BaseController
   def index
-    render json: Teacher.all.limit(100)
+    render json: Teacher.all.limit(50)
   end
 
   def show
@@ -33,7 +33,8 @@ class Api::V1::TeachersController < Api::V1::BaseController
       teachers = Faculty.find(params[:faculty_id])
     end
     if params[:teacher_name].present?
-      teachers = teachers.where('lower(name) LIKE ?', "%#{params[:teacher_name].downcase}%").limit(25)
+      teachers = teachers.where('lower(name) LIKE ?', "%#{params[:teacher_name].downcase}%")
+                         .limit(25)
     end
     if params[:rating_min].present? && params[:rating_max]
       teachers = teachers.where("global_rating >= ?",  params[:rating_min].to_i)
@@ -42,7 +43,7 @@ class Api::V1::TeachersController < Api::V1::BaseController
 
     json_results = []
 
-    teachers.limit(75).each do |teacher|
+    teachers.limit(30).each do |teacher|
       temp = { "id": teacher.id, "name": teacher.name,
                "global_rating": teacher.global_rating }
       json_results.append(temp)
@@ -58,7 +59,10 @@ class Api::V1::TeachersController < Api::V1::BaseController
 
   def autocomplete_search
     teachers = Teacher.where('lower(name) LIKE ?', "%#{params[:name].downcase}%").limit(25)
-    courses = Course.where('lower(name) LIKE ?', "%#{params[:name].downcase}%").limit(25)
+    courses = Course.where(
+      'lower(acronym) LIKE ? OR lower(name) LIKE ?', "%#{params[:name].downcase}%",
+      "%#{params[:name].downcase}%"
+    ).limit(25)
 
     json_results = []
 

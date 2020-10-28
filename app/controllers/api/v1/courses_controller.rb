@@ -1,6 +1,6 @@
 class Api::V1::CoursesController < Api::V1::BaseController
   def index
-    render json: Course.all.limit(100)
+    render json: Course.all.limit(50)
   end
 
   def show
@@ -30,7 +30,7 @@ class Api::V1::CoursesController < Api::V1::BaseController
     end
     json_results = []
 
-    courses.limit(75).each do |course|
+    courses.limit(30).each do |course|
       temp = { "id": course.id,
                "name": course.name,
                "acronym": course.acronym,

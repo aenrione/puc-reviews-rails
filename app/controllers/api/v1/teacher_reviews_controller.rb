@@ -1,6 +1,6 @@
 class Api::V1::TeacherReviewsController < Api::V1::BaseController
   def index
-    render json: TeacherReview.all.limit(100)
+    render json: TeacherReview.all.limit(50)
   end
 
   def show

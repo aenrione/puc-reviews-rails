@@ -2,7 +2,16 @@ class TeacherCourse < ApplicationRecord
   belongs_to :teacher
   belongs_to :course
   validates :teacher_id, :course_id, presence: true
-  validates_uniqueness_of :teacher_id, scope: :course_id
+  validate :already_exists
+
+  private
+
+  def already_exists
+    if TeacherCourse.find_by(teacher_id: teacher_id, course_id: course_id,
+                             semester: semester, year: year).present?
+      errors.add(:teacher_id, "Ya existe esta relación")
+    end
+  end
 end
 
 # == Schema Information
@@ -14,6 +23,8 @@ end
 #  course_id  :bigint(8)        not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  year       :integer
+#  semester   :integer
 #
 # Indexes
 #

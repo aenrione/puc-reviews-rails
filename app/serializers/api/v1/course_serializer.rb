@@ -1,7 +1,23 @@
 class Api::V1::CourseSerializer < ActiveModel::Serializer
-  attributes :id, :name, :credits, :acronym, :campus, :global_rating
-  has_many :teachers
+  attributes :id, :name, :credits, :acronym, :campus, :global_rating, :autocomplete_name
   has_one :school
+
+  YEAR = GetCurrentYearAndSemester.for[0]
+  SEMESTER = GetCurrentYearAndSemester.for[1]
+
+  attribute :teachers do
+    result = []
+    object.teachers.where(teacher_courses: { semester: SEMESTER, year: YEAR }).each do |t|
+      info = {
+        id: t.id,
+        name: t.name,
+        email: t.email,
+        global_rating: t.global_rating
+      }
+      result << info
+    end
+    result
+  end
 
   attribute :rating_counts do
     {
@@ -15,9 +31,5 @@ class Api::V1::CourseSerializer < ActiveModel::Serializer
       '6-7': object.course_reviews.where('rating >= ?', 6)
                    .where('rating < ?', 7).count
     }
-  end
-
-  attribute :autocomplete_name do
-    object.autocomplete_name
   end
 end
