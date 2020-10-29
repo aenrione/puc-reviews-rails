@@ -16,24 +16,24 @@ class Api::V1::CoursesController < Api::V1::BaseController
       courses = Faculty.find(params[:faculty_id]).courses
     end
 
-    if params[:rating_min].present? && params[:rating_max]
-      courses = courses.where("global_rating >= ?",  params[:rating_min].to_i)
-                       .where("global_rating < ?",  params[:rating_max].to_i + 1)
+    if params[:rating_min].present? && params[:rating_max].present?
+      courses = courses.where("courses.global_rating >= ?",  params[:rating_min].to_i)
+                       .where("courses.global_rating < ?",  params[:rating_max].to_i + 1)
     end
 
     if params[:acronym].present?
-      courses = courses.where("lower(acronym) LIKE ?", "%#{params[:acronym].downcase}%")
+      courses = courses.where("lower(courses.acronym) LIKE ?", "%#{params[:acronym].downcase}%")
     end
 
     if params[:course_name].present?
       courses = courses.where(
-        'lower(acronym) LIKE ? OR lower(name) LIKE ?', "%#{params[:course_name].downcase}%",
+        'lower(courses.acronym) LIKE ? OR lower(courses.name) LIKE ?', "%#{params[:course_name].downcase}%",
         "%#{params[:course_name].downcase}%"
-      ).limit(25)
+      )
     end
     json_results = []
 
-    courses.limit(30).each do |course|
+    courses.limit(30).uniq.each do |course|
       temp = { "id": course.id,
                "name": course.name,
                "acronym": course.acronym,

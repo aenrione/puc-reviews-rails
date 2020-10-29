@@ -29,21 +29,21 @@ class Api::V1::TeachersController < Api::V1::BaseController
 
     if params[:school_id].present?
       teachers = School.find(params[:school_id]).teachers
+
     elsif params[:faculty_id].present?
-      teachers = Faculty.find(params[:faculty_id])
+      teachers = Faculty.find(params[:faculty_id]).teachers
     end
     if params[:teacher_name].present?
-      teachers = teachers.where('lower(name) LIKE ?', "%#{params[:teacher_name].downcase}%")
-                         .limit(25)
+      teachers = teachers.where('lower(teachers.name) LIKE ?', "%#{params[:teacher_name].downcase}%")
     end
-    if params[:rating_min].present? && params[:rating_max]
-      teachers = teachers.where("global_rating >= ?",  params[:rating_min].to_i)
-                         .where("global_rating < ?",  params[:rating_max].to_i + 1)
+    if params[:rating_min].present? && params[:rating_max].present?
+      teachers = teachers.where("teachers.global_rating >= ?",  params[:rating_min].to_i)
+                         .where("teachers.global_rating < ?",  params[:rating_max].to_i + 1)
     end
 
     json_results = []
 
-    teachers.limit(30).each do |teacher|
+    teachers.limit(30).uniq.each do |teacher|
       temp = { "id": teacher.id, "name": teacher.name,
                "global_rating": teacher.global_rating }
       json_results.append(temp)

@@ -1,7 +1,7 @@
 class AddSchoolsAndFacultiesFromJson < PowerTypes::Command.new
   def perform
     require 'json'
-    faculties_and_schools_json = File.read('faculties.json')
+    faculties_and_schools_json = File.read('scrapper/faculties.json')
     faculties_and_schools = JSON.parse(faculties_and_schools_json)
 
     add_faculties(faculties_and_schools)

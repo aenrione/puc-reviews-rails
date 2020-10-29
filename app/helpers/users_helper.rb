@@ -11,7 +11,6 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  role                   :integer          default("student")
-#  student_number         :integer
 #  name                   :string
 #  provider               :string           default("email"), not null
 #  uid                    :string           default(""), not null
