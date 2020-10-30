@@ -29,7 +29,7 @@ class Api::V1::TeacherSerializer < ActiveModel::Serializer
       '4-5': object.teacher_reviews.where('rating >= ?', 4)
                    .where('rating < ?', 6).count,
       '6-7': object.teacher_reviews.where('rating >= ?', 6)
-                   .where('rating < ?', 7).count
+                   .where('rating <= ?', 7).count
     }
   end
 end
