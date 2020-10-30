@@ -25,6 +25,10 @@ class Api::V1::CoursesController < Api::V1::BaseController
       courses = courses.where("lower(courses.acronym) LIKE ?", "%#{params[:acronym].downcase}%")
     end
 
+    if params[:name].present?
+      courses = courses.where("lower(courses.name) LIKE ?", "%#{params[:name].downcase}%")
+    end
+
     if params[:course_name].present?
       courses = courses.where(
         'lower(courses.acronym) LIKE ? OR lower(courses.name) LIKE ?', "%#{params[:course_name].downcase}%",
