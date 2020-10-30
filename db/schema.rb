@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_212626) do
+ActiveRecord::Schema.define(version: 2020_10_30_034931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,14 +41,14 @@ ActiveRecord::Schema.define(version: 2020_10_29_212626) do
     t.text "general_comment"
     t.text "positive_comment"
     t.text "negative_comment"
-    t.boolean "recommended"
-    t.integer "semester"
-    t.integer "year"
     t.bigint "course_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.bigint "student_id"
+    t.boolean "anonymous"
     t.index ["course_id"], name: "index_course_reviews_on_course_id"
+    t.index ["student_id"], name: "index_course_reviews_on_student_id"
     t.index ["user_id"], name: "index_course_reviews_on_user_id"
   end
 
@@ -85,6 +85,13 @@ ActiveRecord::Schema.define(version: 2020_10_29_212626) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "students", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "teacher_courses", force: :cascade do |t|
     t.bigint "teacher_id", null: false
     t.bigint "course_id", null: false
@@ -101,15 +108,15 @@ ActiveRecord::Schema.define(version: 2020_10_29_212626) do
     t.text "general_comment"
     t.text "positive_comment"
     t.text "negative_comment"
-    t.boolean "recommended"
-    t.integer "semester"
-    t.integer "year"
     t.bigint "course_id", null: false
     t.bigint "teacher_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.bigint "student_id"
+    t.boolean "anonymous"
     t.index ["course_id"], name: "index_teacher_reviews_on_course_id"
+    t.index ["student_id"], name: "index_teacher_reviews_on_student_id"
     t.index ["teacher_id"], name: "index_teacher_reviews_on_teacher_id"
     t.index ["user_id"], name: "index_teacher_reviews_on_user_id"
   end

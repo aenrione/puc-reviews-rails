@@ -12,20 +12,24 @@ class Api::V1::TeacherReviewsController < Api::V1::BaseController
   end
 
   def create
-    authenticate_v1_user!
-    teacher_review = TeacherReview.new(
-      user_id: current_v1_user.id, teacher_id: params[:teacher_id],
-      course_id: params[:course_id],
-      rating: params[:rating],
-      general_comment: params[:general_comment],
-      positive_comment: params[:positive_comment],
-      negative_comment: params[:negative_comment]
-    )
-    if teacher_review.save
-      UpdateEntityRating.for(teacher_id: params[:teacher_id])
-      render json: {}, status: :ok
-    else
-      raise 'No se pudo crear, revise parametros'
+    if student_present?
+      student = find_or_create_student(params[:student_email], params[:student_name])
+      teacher_review = TeacherReview.new(
+        teacher_id: params[:teacher_id],
+        course_id: params[:course_id],
+        rating: params[:rating],
+        general_comment: params[:general_comment],
+        positive_comment: params[:positive_comment],
+        negative_comment: params[:negative_comment],
+        anonymous: params[:anonymous],
+        student_id: student.id
+      )
+      if teacher_review.save
+        UpdateEntityRating.for(teacher_id: params[:teacher_id])
+        render json: {}, status: :ok
+      else
+        raise 'Ya ha escrito sobre este profesor y ramo'
+      end
     end
   end
 

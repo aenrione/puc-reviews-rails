@@ -4,6 +4,7 @@ FactoryBot.define do
     general_comment { Faker::Lorem.sentence }
     association :teacher
     association :course
+    association :student
     association :user
   end
 end
