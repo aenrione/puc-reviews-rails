@@ -23,7 +23,7 @@ end
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  school_id     :bigint(8)
-#  global_rating :float
+#  global_rating :decimal(3, 2)
 #
 # Indexes
 #

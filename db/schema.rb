@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_30_034931) do
+ActiveRecord::Schema.define(version: 2020_11_01_153037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_034931) do
   end
 
   create_table "course_reviews", force: :cascade do |t|
-    t.float "rating"
+    t.decimal "rating", precision: 3, scale: 2
     t.text "general_comment"
     t.text "positive_comment"
     t.text "negative_comment"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_034931) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "school_id"
-    t.float "global_rating"
+    t.decimal "global_rating", precision: 3, scale: 2
     t.index ["school_id"], name: "index_courses_on_school_id"
   end
 
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_034931) do
   end
 
   create_table "teacher_reviews", force: :cascade do |t|
-    t.float "rating"
+    t.decimal "rating", precision: 3, scale: 2
     t.text "general_comment"
     t.text "positive_comment"
     t.text "negative_comment"
@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_034931) do
   create_table "teachers", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.float "global_rating"
+    t.decimal "global_rating", precision: 3, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
