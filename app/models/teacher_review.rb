@@ -26,7 +26,7 @@ end
 # Table name: teacher_reviews
 #
 #  id               :bigint(8)        not null, primary key
-#  rating           :float
+#  rating           :decimal(3, 2)
 #  general_comment  :text
 #  positive_comment :text
 #  negative_comment :text

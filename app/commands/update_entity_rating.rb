@@ -21,6 +21,6 @@ class UpdateEntityRating < PowerTypes::Command.new(teacher_id: nil, course_id: n
     all_reviews.each do |review|
       rating_count += review.rating
     end
-    Float(rating_count / cuantity)
+    rating_count / cuantity
   end
 end
