@@ -30,7 +30,7 @@ jobs:
 
     - uses: eregon/use-ruby-action@master
       with:
-        ruby-version: "${{ steps.rubyversion.outputs.RUBY_VERSION }}"
+        ruby-version: "2.7.3"
 
     - uses: actions/cache@v1
       with:
