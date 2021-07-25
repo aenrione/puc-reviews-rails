@@ -11,6 +11,7 @@ class Api::V1::SchoolsController < Api::V1::BaseController
     if current_v1_user.student?
       raise 'Estudiantes no tienen este privilegio'
     end
+
     school = School.new(
       name: params[:name],
       faculty_id: params[:faculty_id]

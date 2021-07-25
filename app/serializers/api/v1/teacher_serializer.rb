@@ -12,7 +12,7 @@ class Api::V1::TeacherSerializer < ActiveModel::Serializer
         acronym: c.acronym,
         credits: c.credits,
         campus: c.campus,
-        global_rating: c.global_rating,
+        global_rating: c.global_rating
       }
       result << info
     end

@@ -10,9 +10,9 @@ module PucReviews
         origins '*'
         resource '/public/*', headers: :any, methods: :get
         resource '/api/*',
-          headers: :any,
-          expose: ['access-token', 'uid', 'client', 'token-type', 'expiry'],
-          methods: [:get, :post, :patch, :put, :delete, :options]
+                 headers: :any,
+                 expose: ['access-token', 'uid', 'client', 'token-type', 'expiry'],
+                 methods: [:get, :post, :patch, :put, :delete, :options]
       end
     end
 

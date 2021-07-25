@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.7.3'
 
 gem 'active_model_serializers', '~> 0.10.0'
-#gem 'aws-sdk-s3', require: false
+# gem 'aws-sdk-s3', require: false
 gem 'bootsnap', require: false
 gem 'data_migrate'
 gem 'devise'
@@ -41,10 +41,10 @@ group :linter do
   gem 'fasterer', require: false
   gem 'pronto'
   gem 'pronto-brakeman', require: false
+  gem 'pronto-eslint', require: false
   gem 'pronto-fasterer', require: false
   gem 'pronto-rubocop', require: false
   gem 'pronto-scss', require: false
-  gem 'pronto-eslint', require: false
   gem 'rubocop', '~> 0.82.0'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
