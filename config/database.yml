@@ -1,6 +1,6 @@
 development: &default
   adapter: postgresql
-  database: puc-yelp_development
+  database: puc_reviews_development
   encoding: utf8
   host: <%= ENV["DB_HOST"] || "127.0.0.1" %>
   port: <%= ENV["DB_PORT"] || 5432 %>
@@ -12,7 +12,7 @@ development: &default
 
 test:
   <<: *default
-  database: puc-yelp_test
+  database: puc_reviews_test
 
 production: &deploy
   encoding: utf8

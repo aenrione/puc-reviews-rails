@@ -1,5 +1,5 @@
 {
-  "name": "puc_yelp",
+  "name": "puc_reviews",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",

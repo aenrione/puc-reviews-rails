@@ -2,19 +2,19 @@
 
 # Setup heroku application remotes
 if heroku auth:whoami &> /dev/null; then
-  if heroku apps:info --app pl-puc-yelp-staging &> /dev/null; then
-    git remote add staging git@heroku.com:pl-puc-yelp-staging.git || true
+  if heroku apps:info --app pl-puc-reviews-staging &> /dev/null; then
+    git remote add staging git@heroku.com:pl-puc-reviews-staging.git || true
     git config heroku.remote staging
-    echo 'You are a collaborator on the "pl-puc-yelp-staging" Heroku app'
+    echo 'You are a collaborator on the "pl-puc-reviews-staging" Heroku app'
   else
-    echo 'Ask for access to the "pl-puc-yelp-staging" Heroku app'
+    echo 'Ask for access to the "pl-puc-reviews-staging" Heroku app'
   fi
 
-  if heroku apps:info --app pl-puc-yelp-production &> /dev/null; then
-    git remote add production git@heroku.com:pl-puc-yelp-production.git || true
-    echo 'You are a collaborator on the "pl-puc-yelp-production" Heroku app'
+  if heroku apps:info --app pl-puc-reviews-production &> /dev/null; then
+    git remote add production git@heroku.com:pl-puc-reviews-production.git || true
+    echo 'You are a collaborator on the "pl-puc-reviews-production" Heroku app'
   else
-    echo 'Ask for access to the "pl-puc-yelp-production" Heroku app'
+    echo 'Ask for access to the "pl-puc-reviews-production" Heroku app'
   fi
 else
   echo 'You need to login to heroku. Run "heroku login"'

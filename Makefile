@@ -1,4 +1,4 @@
-PROJECT ?= puc-yelp
+PROJECT ?= puc-reviews
 
 SHELL := /bin/bash
 
