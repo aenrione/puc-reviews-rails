@@ -12,6 +12,12 @@ Rails:
   Enabled: true
 Performance:
   Enabled: true
+Layout/IndentationStyle:
+  Enabled: false
+Layout/IndentationWidth:
+  Enabled: false
+Layout/IndentationConsistency:
+  Enabled: false
 Layout/ParameterAlignment:
   Description: Align the parameters of a method call if they span more than one line.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-double-indent

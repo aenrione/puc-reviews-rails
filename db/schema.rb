@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_01_153037) do
+ActiveRecord::Schema.define(version: 2021_07_25_234828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2020_11_01_153037) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "course_current_quota", force: :cascade do |t|
+    t.integer "quota"
+    t.date "last_check"
+    t.bigint "semester_course_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["semester_course_id"], name: "index_course_current_quota_on_semester_course_id"
   end
 
   create_table "course_reviews", force: :cascade do |t|
@@ -83,6 +92,38 @@ ActiveRecord::Schema.define(version: 2020_11_01_153037) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "scraper_backups", force: :cascade do |t|
+    t.integer "year", null: false
+    t.integer "semester", null: false
+    t.jsonb "json"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "semester_course_schedules", force: :cascade do |t|
+    t.string "type"
+    t.string "dates"
+    t.string "classroom"
+    t.bigint "semester_course_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["semester_course_id"], name: "index_semester_course_schedules_on_semester_course_id"
+  end
+
+  create_table "semester_courses", force: :cascade do |t|
+    t.integer "nrc", null: false
+    t.string "acronym", null: false
+    t.integer "total_quota"
+    t.string "format"
+    t.string "category"
+    t.integer "year", null: false
+    t.integer "semester", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_semester_courses_on_course_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -148,9 +189,12 @@ ActiveRecord::Schema.define(version: 2020_11_01_153037) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "course_current_quota", "semester_courses"
   add_foreign_key "course_reviews", "courses"
   add_foreign_key "school_faculties", "faculties"
   add_foreign_key "school_faculties", "schools"
+  add_foreign_key "semester_course_schedules", "semester_courses"
+  add_foreign_key "semester_courses", "courses"
   add_foreign_key "teacher_courses", "courses"
   add_foreign_key "teacher_courses", "teachers"
   add_foreign_key "teacher_reviews", "courses"

@@ -8,3 +8,4 @@
 # Country.create(name: "Chile") # BAD
 # Country.find_or_create_by(name: "Chile") # GOOD
 #
+AddSchoolsAndFacultiesFromJson.for()

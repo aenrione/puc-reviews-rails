@@ -1,14 +1,14 @@
 class Course < ApplicationRecord
-  belongs_to :school
-  has_many :teacher_courses, dependent: :destroy
-  has_many :teachers, through: :teacher_courses
-  has_many :course_reviews, dependent: :destroy
-  validates :name, :credits, :school_id, presence: true
-  attribute :global_rating, :float, default: 0
+	belongs_to :school
+	has_many :teacher_courses, dependent: :destroy
+	has_many :teachers, through: :teacher_courses
+	has_many :course_reviews, dependent: :destroy
+	validates :name, :credits, :school_id, presence: true
+	attribute :global_rating, :float, default: 0
 
-  def autocomplete_name
-    "#{acronym} - #{name}"
-  end
+	def autocomplete_name
+		"#{acronym} - #{name}"
+	end
 end
 
 # == Schema Information
