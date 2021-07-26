@@ -1,4 +1,4 @@
-class AddCoursesAndTeachersFromJson < PowerTypes::Command.new(:json, :year, :semester)
+class AddCoursesAndTeachersFromJson < PowerTypes::Command.new(:json, :year, :semester, create_semester_courses: false)
 	UNDEFINED_TEACHER = 'Por Fijar'
 	NO_TEACHER = '(Sin Profesores)'
 
@@ -32,6 +32,8 @@ class AddCoursesAndTeachersFromJson < PowerTypes::Command.new(:json, :year, :sem
 	end
 
 	def find_or_create_course(course_info, school_id)
+		return false if !@create_semester_courses
+
 		acronym = course_info['Sigla']
 		Course.find_by(acronym: acronym).presence ||
 				Course.create!(

@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:role) }
     it do
-      expect(user).to define_enum_for(:role).with(
+      expect(user).to define_enum_for(:role).with_values(
         [:super_admin, :helper, :student]
       )
     end

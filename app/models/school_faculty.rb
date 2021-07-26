@@ -2,7 +2,6 @@ class SchoolFaculty < ApplicationRecord
   belongs_to :school
   belongs_to :faculty
   validates :faculty_id, :school_id, presence: true
-  validates_uniqueness_of :faculty_id, scope: :school_id
 end
 
 # == Schema Information
