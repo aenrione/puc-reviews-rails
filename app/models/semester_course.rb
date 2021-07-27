@@ -1,6 +1,7 @@
 class SemesterCourse < ApplicationRecord
 	has_many :semester_course_schedules, dependent: :destroy
 	has_many :course_current_quotum, dependent: :destroy
+	belongs_to :course
 end
 
 # == Schema Information

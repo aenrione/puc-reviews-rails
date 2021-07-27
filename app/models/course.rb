@@ -3,6 +3,7 @@ class Course < ApplicationRecord
 	has_many :teacher_courses, dependent: :destroy
 	has_many :teachers, through: :teacher_courses
 	has_many :course_reviews, dependent: :destroy
+	has_many :semester_courses, dependent: :destroy
 	validates :name, :credits, :school_id, presence: true
 	attribute :global_rating, :float, default: 0
 

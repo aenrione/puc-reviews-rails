@@ -1,4 +1,4 @@
-class ParseCoursesInfo < PowerTypes::Command.new(:year, :semester)
+class ParseCoursesInfo < PowerTypes::Command.new(:year, :semester, is_test: false)
 	ABS_CATEGORY_COL_IDX = 17
 	ABS_NAME_COL_IDX = 19
 	COURSE_CHILDREN_LENGTH = 37
@@ -7,7 +7,8 @@ class ParseCoursesInfo < PowerTypes::Command.new(:year, :semester)
 		require 'json'
 		require 'open-uri'
 		ramos = []
-		schools = JSON.parse(File.read("scrapper/schools.json"))
+		schools_file = @is_test ? "scrapper/schools_test.json" : "scrapper/schools.json"
+		schools = JSON.parse(File.read(schools_file))
 		total_schools = schools.count
 		school_count = 0
 		schools.each do |school|

@@ -1,7 +1,7 @@
 class AddSemesterInfoToDbJob < ApplicationJob
-	def perform(year, semester, create_semester_courses = false)
+	def perform(year, semester, create_semester_courses = false, is_test = false)
 		logger.info "Obteniendo JSON"
-		json = ParseCoursesInfo.for(year: year, semester: semester)
+		json = ParseCoursesInfo.for(year: year, semester: semester, is_test: is_test)
 		ScraperBackup.create(year: year, semester: semester, json: json)
 		logger.info "\n"
 		logger.info json
