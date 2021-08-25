@@ -24,7 +24,7 @@ class AddCoursesAndTeachersFromJson < PowerTypes::Command.new(:json, :year, :sem
 	def process_courses_to_db(courses, db_school)
 		courses.each do |course_info|
 			db_course = find_or_create_course(course_info, db_school.id)
-			find_or_create_semester_course(course_info, db_course.id)
+			find_or_create_semester_course(course_info, db_course.id) if @create_semester_courses
 			teacher_names = get_names(course_info["Prof"])
 			teacher_names.each { |name| add_teacher_and_relationship(name, db_course.id) }
 		end
@@ -32,8 +32,6 @@ class AddCoursesAndTeachersFromJson < PowerTypes::Command.new(:json, :year, :sem
 	end
 
 	def find_or_create_course(course_info, school_id)
-		return false if !@create_semester_courses
-
 		acronym = course_info['Sigla']
 		Course.find_by(acronym: acronym).presence ||
 				Course.create!(
